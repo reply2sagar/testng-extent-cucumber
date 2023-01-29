@@ -14,7 +14,7 @@ public class CucumberContext {
     public Map<String, Object> map ;
 
 
-     CucumberContext(){
+     public CucumberContext(){
         System.out.println("Cucumbercontext");
         extent = Singleton.getInstance().extent;
         // configure the report

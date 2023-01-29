@@ -6,6 +6,7 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import models.Address;
 import models.Person;
@@ -18,6 +19,7 @@ public class MyStepdefs{
     CucumberContext context;
     Response response;
     ArticleApi api;
+    String tokenName;
     static ExtentReports extent;
     public MyStepdefs(CucumberContext context){
         this.context = context;
@@ -42,8 +44,11 @@ public class MyStepdefs{
     public void iSendTheRequestToAuthApiToGetToken() {
         api = new ArticleApi();
         response = api.getArticles();
+        assertEquals(200, response.getStatusCode());
         context.getTest().info("Response " +response.prettyPrint());
         context.map.put("o1",new Person("Sagar"));
+        JsonPath js = new JsonPath(response.getBody().asString());
+        context.getTest().info(js.getString("title"));
     }
 
     @Then("the token should be sent in the response")
@@ -53,6 +58,8 @@ public class MyStepdefs{
         Person p2 = (Person) context.map.get("o1");
         context.getTest().info("Person Name " + p2.getName());
 
+        //extract token and assign it to tokenValue
+        //tokenValue =
     }
 
     @Given("I send the post request")
@@ -62,6 +69,20 @@ public class MyStepdefs{
 //        post.setBody("Hello");
 //        post.setTitle("Title");
 //        post.setUserId("2");
+
+
+        /*
+
+        {
+        name: "xyz",
+        Addresses : [
+            {city:"sds",postcode:4300},
+            {}
+        ]
+        }
+
+
+         */
 
         Address address1 = new Address();
         address1.setCity("Pune");

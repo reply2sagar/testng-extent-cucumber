@@ -12,7 +12,6 @@ public class ArticleApi extends Api {
         return RestAssured.get("/posts/1");
     }
 
-
     //You can use request specification to avoid duplicate code
     public Response postArticle(String payload){
         return  RestAssured.given()
