@@ -1,4 +1,5 @@
 import io.restassured.response.Response;
+import org.softpost.ArticleApi;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -13,8 +14,9 @@ public class ApiTest extends BaseTest{
 
     @Test
     public void getUserPost() {
-        PostApi api = new PostApi();
-        Response response = api.getPosts();
+
+        ArticleApi api = new ArticleApi();
+        Response response = api.getArticles();
         assertEquals(200, response.getStatusCode());
         test.info("200 response got from api" + response.toString());
         // assertEquals("quidem molestiae enim", response.jsonPath().get("title"));
@@ -23,8 +25,8 @@ public class ApiTest extends BaseTest{
     @Test
     public void PostRequest(){
         String payload = "{\"title\":\"foo\",\"body\":\"bar\",\"userId\":1}";
-        PostApi api = new PostApi();
-        Response response = api.submitPost(payload);
+        ArticleApi api = new ArticleApi();
+        Response response = api.postArticle(payload);
         assertEquals(201, response.getStatusCode());
         test.info("201 response got from api");
     }

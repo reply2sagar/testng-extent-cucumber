@@ -5,7 +5,7 @@
     </listeners>
     <test name="My Test">
         <classes>
-            <class name="ApiTest"/>
+            <class name="cucumbertests.CucumberTestngRunner"/>
         </classes>
     </test>
 </suite>
