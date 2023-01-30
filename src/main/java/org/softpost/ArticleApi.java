@@ -25,7 +25,7 @@ public class ArticleApi extends Api {
     public Response getArticles(){
         //String log = RestAssured.given().log().all().when().get("/some/resource").then().extract().log().toString();
 
-        return RestAssured.get("/posts");
+        return RestAssured.given().log().all().get("/posts/1");
     }
 
     //You can use request specification to avoid duplicate code
@@ -42,6 +42,7 @@ public class ArticleApi extends Api {
 //        } catch (UnsupportedEncodingException e) {
 //            throw new RuntimeException(e);
 //        }
+//        RestAssured.config = RestAssured.config().logConfig(new LogConfig().defaultStream(ps));
 
 //        PrintStream fileOutPutStream = null;
 //        try {

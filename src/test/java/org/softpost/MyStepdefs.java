@@ -2,7 +2,6 @@ package org.softpost;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -49,6 +48,9 @@ public class MyStepdefs{
         context.map.put("o1",new Person("Sagar"));
         JsonPath js = new JsonPath(response.getBody().asString());
         //context.getTest().info(js.getString("title"));
+        context.getTest().info("Raw Logs " + response.prettyPrint());
+
+        context.getTest().info("Raw Logs " + Singleton.getInstance().getRawLogs());
 
     }
 
@@ -71,25 +73,6 @@ public class MyStepdefs{
     @Given("I send the post request")
     public void iSendThePostRequest() throws Exception{
 
-//        Post post = new Post();
-//        post.setBody("Hello");
-//        post.setTitle("Title");
-//        post.setUserId("2");
-
-
-        /*
-
-        {
-        name: "xyz",
-        Addresses : [
-            {city:"sds",postcode:4300},
-            {}
-        ]
-        }
-
-
-         */
-
         Address address1 = new Address();
         address1.setCity("Pune");
         Address address2 = new Address();
@@ -107,19 +90,15 @@ public class MyStepdefs{
 
         ArticleApi api = new ArticleApi();
         response = api.postArticle(payload);
+        context.getTest().info("Raw Logs " + Singleton.getInstance().getRawLogs());
+
 
     }
 
     @Then("new record should be created and id should be in the response")
     public void newRecordShouldBeCreatedAndIdShouldBeInTheResponse() {
-        //String rawRequest = r
-        //String rawResponse = response.asString();
-
         //System.out.println("REQUEST IN SOUT " + response.then().extract());
-        //context.getTest().info("Raw Response " + response.then().log().all());
         assertEquals(201, response.getStatusCode());
-
         //context.getTest().info("Response Payload " + response.headers().toString());
-
     }
 }
