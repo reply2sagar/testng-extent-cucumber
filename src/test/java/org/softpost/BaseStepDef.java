@@ -1,7 +1,6 @@
 package org.softpost;
 
 import com.aventstack.extentreports.ExtentReports;
-import io.cucumber.core.exception.CucumberException;
 import io.cucumber.java.*;
 
 public class BaseStepDef {
@@ -14,18 +13,17 @@ public class BaseStepDef {
 
     @BeforeAll
     public static void setupBeforeAll(){
-        System.out.println("Running beforeAll hook");
+
+        //System.out.println("Running beforeAll hook");
     }
 
     @AfterAll
     public static void setupAfterAll(){
-        System.out.println("Running afterAll hook");
         Singleton.getInstance().extent.flush();
     }
 
     @Before
     public void setupBefore(Scenario scenario){
-        System.out.println("Running before hook");
         Singleton.getInstance().setError("");
         context.setTest(extent.createTest(scenario.getName()));
         context.getTest().assignCategory(scenario.getSourceTagNames().toArray(new String[0]));
@@ -33,7 +31,6 @@ public class BaseStepDef {
 
     @After
     public void setupAfter(Scenario scenario){
-        System.out.println("Running after hook");
         context.getTest().info(scenario.getName());
         context.getTest().info("Status : " + scenario.getStatus().toString());
         if (scenario.isFailed()) {

@@ -15,7 +15,7 @@ public class CucumberContext {
 
 
      public CucumberContext(){
-        System.out.println("Cucumbercontext");
+        //System.out.println("Cucumbercontext");
         extent = Singleton.getInstance().extent;
         // configure the report
         ExtentSparkReporter htmlReporter = new ExtentSparkReporter("target/extent.html");

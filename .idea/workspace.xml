@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25584d1c-89d9-4fb0-8430-89d0cc4b4853" name="Changes" comment="added cucumber testng">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/intg.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/uat.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utilities/ConfigManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/2.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/softpost/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/softpost/Api.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/softpost/ArticleApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/softpost/ArticleApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/intg.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/intg.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/uat.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/uat.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cucumbertests/CucumberTestngRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumbertests/CucumberTestngRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cucumbertests/Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cucumbertests/Listener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/softpost/BaseStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/softpost/BaseStepDef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/softpost/CucumberContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/softpost/CucumberContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/softpost/MyStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/softpost/MyStepdefs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/softpost/Singleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/softpost/Singleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/APIFeatures.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/APIFeatures.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +60,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/PC/Documents/coding/testng-extent-cucumber/src/main/resources",
+    "last_opened_file_path": "C:/Users/PC/Documents/coding/testng-extent-cucumber/src/test/resources",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
@@ -59,13 +69,17 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\Documents\coding\testng-extent-cucumber\src\test\resources" />
       <recent name="C:\Users\PC\Documents\coding\testng-extent-cucumber\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\Documents\coding\testng-extent-cucumber\src\main\java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.softpost" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Get Token">
+  <component name="RunManager" selected="Maven.INTG">
     <configuration name="Feature: APIFeatures" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/APIFeatures.feature" />
@@ -106,6 +120,58 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="INTG" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="test" />
+                <option value="-Denv=intg" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="UAT Test" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="test" />
+                <option value="-Denv=uat" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <configuration name="CucumberTestngRunner" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="testng-extent-cucumber" />
       <extension name="coverage">
@@ -126,6 +192,8 @@
     <list>
       <item itemvalue="Cucumber Java.Scenario: Get Token" />
       <item itemvalue="Cucumber Java.Feature: APIFeatures" />
+      <item itemvalue="Maven.UAT Test" />
+      <item itemvalue="Maven.INTG" />
       <item itemvalue="TestNG.CucumberTestngRunner" />
     </list>
     <recent_temporary>
@@ -166,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674983839219</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added cucumber testng">
+      <created>1674988920936</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674988920936</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,8 +266,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/org/softpost/MyStepdefs.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="2" />
+          <line>59</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

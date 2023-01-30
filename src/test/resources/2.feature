@@ -1,7 +1,6 @@
 Feature: Verify placeholder API
 
-
-  @Regression @S1
+    @Regression
   Scenario: Get Token
     Given I send the request to auth api to get token
     Then the token should be sent in the response

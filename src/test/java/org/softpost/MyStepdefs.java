@@ -45,18 +45,24 @@ public class MyStepdefs{
         api = new ArticleApi();
         response = api.getArticles();
         assertEquals(200, response.getStatusCode());
-        context.getTest().info("Response " +response.prettyPrint());
+        //context.getTest().info("Response " +response.prettyPrint());
         context.map.put("o1",new Person("Sagar"));
         JsonPath js = new JsonPath(response.getBody().asString());
-        context.getTest().info(js.getString("title"));
+        //context.getTest().info(js.getString("title"));
+
     }
 
     @Then("the token should be sent in the response")
     public void theTokenShouldBeSentInTheResponse() {
         assertEquals(200, response.getStatusCode());
 
-        Person p2 = (Person) context.map.get("o1");
-        context.getTest().info("Person Name " + p2.getName());
+        JsonPath jsonPath= response.jsonPath();
+        Integer name = jsonPath.get("[0].userId");
+        context.getTest().info("User Id is " + name);
+
+
+        //Person p2 = (Person) context.map.get("o1");
+        context.getTest().info("Response " + response.prettyPrint());
 
         //extract token and assign it to tokenValue
         //tokenValue =
@@ -106,6 +112,14 @@ public class MyStepdefs{
 
     @Then("new record should be created and id should be in the response")
     public void newRecordShouldBeCreatedAndIdShouldBeInTheResponse() {
-        assertEquals(200, response.getStatusCode());
+        //String rawRequest = r
+        //String rawResponse = response.asString();
+
+        //System.out.println("REQUEST IN SOUT " + response.then().extract());
+        //context.getTest().info("Raw Response " + response.then().log().all());
+        assertEquals(201, response.getStatusCode());
+
+        //context.getTest().info("Response Payload " + response.headers().toString());
+
     }
 }

@@ -6,6 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         plugin = { "cucumbertests.Listener" },
         features = "target/test-classes/APIFeatures.feature",
-        glue="org.softpost"
+        glue="org.softpost",
+        tags= "@S1"
     )
 public class CucumberTestngRunner extends AbstractTestNGCucumberTests {}

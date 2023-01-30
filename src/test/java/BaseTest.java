@@ -41,9 +41,9 @@ public class BaseTest implements IInvokedMethodListener {
     @AfterMethod
     public void logResult(ITestResult testResult) throws IOException {
         if (testResult.getStatus() == ITestResult.FAILURE) {
-            test.fail("failed the test");
+            test.fail("failed the test ");
         }else if (testResult.getStatus() == ITestResult.SUCCESS) {
-            test.pass("passed the test");
+            test.pass("passed the test ");
         }
     }
 

@@ -39,13 +39,13 @@ public class Listener implements ConcurrentEventListener {
 
     private void StepFinished(TestStepFinished event) {
         String featureName = event.getTestCase().getUri().toString();
-        System.out.println("MyError :) " + event.getResult().getError());
+        //System.out.println("MyError :) " + event.getResult().getError());
         //context.getTest().info(event.getResult().getError());
 
         if (event.getResult().getError()!=null)
         {
-            Singleton.getInstance().setError(event.getResult().getError().toString());
-            System.out.println( "Singleton error " + Singleton.getInstance().getError());
+            Singleton.getInstance().setError(event.getTestCase().getName() + event.getTestStep().toString() + event.getResult().getError().toString());
+            //System.out.println( "Singleton error " + Singleton.getInstance().getError());
         }
     };
 }
